@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* All page */
+
+.allPage {
+    background: linear-gradient(lightgrey, darkgrey);
+    height: 100vh;
+}
