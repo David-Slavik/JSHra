@@ -7,6 +7,18 @@
 /* All page */
 
 .allPage {
-    background: linear-gradient(lightgrey, darkgrey);
+    background: linear-gradient(lightpink, violet);
     height: 100vh;
+}
+
+/* Playground */
+.playground {
+    width: 80%;
+    height: 80%;
+    background: #d1ccb4;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    
+
 }
