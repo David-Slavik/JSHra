@@ -7,7 +7,7 @@
 /* All page */
 
 .allPage {
-    background: linear-gradient(lightpink, violet);
+    background: linear-gradient(#AD4F34, #b95c10);
     height: 100vh;
 }
 
@@ -42,19 +42,19 @@
 .totalScore1 {
     position: absolute;
     top: 15%;
-    left: 70%;
+    left: 75%;
 }
 
 /* Current score */
 .currentScore {
     width: 150px;
     height: 150px;
-    background: pink;
+    background: #b95c10;
 }
 
 .currentScore p {
     font-size: 20px;
-    color: #000;
+    color: #fff;
     text-align: center;
     padding-top: 20px;
 }
@@ -66,19 +66,44 @@
 .currentScore0 {
     position: absolute;
     top: 40%;
-    left: 13.5%;
+    left: 11.5%;
 }
 
 .currentScore1 {
     position: absolute;
     top: 40%;
-    right: 12.5%;
+    right: 11.5%;
 }
 
+/* Middle text (buttons) */
+.middleText {
+    position: absolute;
+    top: 65%;
+    left: 40%;
+    text-align: center;
+    font-size: 35px;
+    color: #fff;
+}
 
+.btn {
+    border: 2px solid #b95c10;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #b95c10;
+}
 
+.btn:hover {
+    border: 2px;
+    background-color: #AD4F34;
+}
 
-
+/* Dice */
+.dice {
+    position: absolute;
+    top: 30%;
+    left: 44%;
+}
 
 
 
