@@ -1,14 +1,14 @@
 // Základní proměnné
 let totalScore, roundScore, activePlayer, dice;
 
-totalScore = [0,0];
+totalScore = [0,0];     // pole 0, 1
 roundScore = 0;
 activePlayer = 0;   // 0 = první hráč, 1 = druhý hráč
 
 
 // vynulování a odstranění kostky
-document.getElementById("totalScorePlaeyer-0").textContent = 0;
-document.getElementById("totalScorePlaeyer-1").textContent = 0;
+document.getElementById("totalScorePlayer-0").textContent = 0;
+document.getElementById("totalScorePlayer-1").textContent = 0;
 document.getElementById("currentScore-0").textContent = 0;
 document.getElementById("currentScore-1").textContent = 0;
 
@@ -53,6 +53,19 @@ function nextPlayer(){
 }
 
 
+document.querySelector(".holdScore").addEventListener("click", function(){
+    // celkové skóre se vyplní současným skóre
+    totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
+
+    // 
+    document.querySelector("#totalScorePlayer-" + activePlayer).textContent = totalScore[activePlayer];
+
+    if(totalScore[activePlayer] >= 20){
+        document.querySelector("#name-" + activePlayer).textContent = "Vítěz! Vítěz";
+    } else {
+        nextPlayer();
+    }
+})
 
 
 
