@@ -105,6 +105,14 @@
     left: 44%;
 }
 
+/* Active player */
+.active {
+    color: #fff;
+    border: 2px solid #AD4F34;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #AD4F34;
+}
 
 
 
