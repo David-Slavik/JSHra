@@ -1,20 +1,5 @@
 // Základní proměnné
-let totalScore, roundScore, activePlayer, dice;
-/* 
-totalScore = [0,0];     // pole 0, 1
-roundScore = 0;
-activePlayer = 0;   // 0 = první hráč, 1 = druhý hráč
- */
-/* 
-// vynulování a odstranění kostky
-document.getElementById("totalScorePlayer-0").textContent = 0;
-document.getElementById("totalScorePlayer-1").textContent = 0;
-document.getElementById("currentScore-0").textContent = 0;
-document.getElementById("currentScore-1").textContent = 0;
- */
-/* 
-document.querySelector(".diceImage").style.display = "none";
- */
+let totalScore, roundScore, activePlayer, dice, playGame;
 
 newStart();
 
@@ -23,6 +8,7 @@ function newStart(){
     totalScore = [0,0];     // pole 0, 1
     roundScore = 0;
     activePlayer = 0;   // 0 = první hráč, 1 = druhý hráč
+    playGame = true;
 
     // vynulování a odstranění kostky
     document.getElementById("totalScorePlayer-0").textContent = 0;
@@ -43,13 +29,9 @@ function newStart(){
 }
 
 
-
-
-
-
-
 // měníme obrázek kostky podle náhodného čísla
 document.querySelector(".rollDice").addEventListener("click", function() {
+    if(playGame){
     // 1. generujeme náhodné číslo mezi 1 a 6
     let dice = Math.ceil(Math.random()*6);
 
@@ -64,6 +46,7 @@ document.querySelector(".rollDice").addEventListener("click", function() {
         document.getElementById("currentScore-" + activePlayer).textContent = roundScore;
     } else {
         nextPlayer();   // bude hrát další hráč
+    }    
     }
 });
 
@@ -88,18 +71,22 @@ function nextPlayer(){
 
 // Tlačítko podržet skóre
 document.querySelector(".holdScore").addEventListener("click", function(){
+    if(playGame){
     // celkové skóre se vyplní současným skóre
     totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
 
-    // 
+    // propsání celkového skóre
     document.querySelector("#totalScorePlayer-" + activePlayer).textContent = totalScore[activePlayer];
 
     if(totalScore[activePlayer] >= 20){
         document.querySelector("#name-" + activePlayer).textContent = "Vítěz! Vítěz";
         document.querySelector(".diceImage").style.display = "none";
+        playGame = false;
     } else {
         nextPlayer();
     }
+    }
+    
 })
 
 document.querySelector(".newGame").addEventListener("click", newStart);
