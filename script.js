@@ -27,13 +27,13 @@ document.querySelector(".rollDice").addEventListener("click", function() {
     // 3. Nasčítáme čísla z kostky
     if (dice !== 1){
         roundScore = roundScore + dice;
-        document.getElementById("currentScore-0").textContent = roundScore;
+        document.getElementById("currentScore-" + activePlayer).textContent = roundScore;
     } else {
         nextPlayer();   // bude hrát další hráč
     }
 });
 
-
+// Přepínáme na dalšího hráče
 function nextPlayer(){
     if(activePlayer === 0){     // Když je activePlayer roven 0, hraje hráč číslo 1. Když není roven 0, tak hraje hráč číslo 2.
         activePlayer = 1;       // tak ho přepni na hráče číslo 2
@@ -52,7 +52,7 @@ function nextPlayer(){
     document.querySelector(".totalScore1").classList.toggle("active");      // toggle = pokud totalscore0 má active, tak to přepni na remove(remove), pokud ho nemá, tak ho přidej (add)
 }
 
-
+// Tlačítko podržet skóre
 document.querySelector(".holdScore").addEventListener("click", function(){
     // celkové skóre se vyplní současným skóre
     totalScore[activePlayer] = totalScore[activePlayer] + roundScore;
@@ -62,6 +62,7 @@ document.querySelector(".holdScore").addEventListener("click", function(){
 
     if(totalScore[activePlayer] >= 20){
         document.querySelector("#name-" + activePlayer).textContent = "Vítěz! Vítěz";
+        document.querySelector(".diceImage").style.display = "none";
     } else {
         nextPlayer();
     }
